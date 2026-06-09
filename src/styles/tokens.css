@@ -1,0 +1,14 @@
+/* Meridian Portal — design tokens
+   Placeholder values only. Real brand pass: MTC-362. */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-brand: #1a1a2e;
+  --color-accent: #4a6fa5;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
