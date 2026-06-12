@@ -25,41 +25,49 @@ export default function LoginPage({ inviteToken }: LoginPageProps) {
   }
 
   return (
-    <div data-testid="login-page" style={{ fontFamily: 'var(--font-sans)', maxWidth: '400px', margin: '4rem auto', padding: '2rem' }}>
-      <h1 style={{ marginBottom: '2rem' }}>Meridian Portal</h1>
+    <div data-testid="login-page" className="auth-screen">
+      <div className="auth-card">
+        <div className="auth-brand">
+          <span className="brand-name">Meridian</span>
+        </div>
 
-      <button
-        data-testid="google-signin-btn"
-        onClick={() => signInWithGoogle()}
-        style={{ width: '100%', padding: '0.75rem', marginBottom: '1.5rem', cursor: 'pointer' }}
-      >
-        Continue with Google
-      </button>
+        <button
+          data-testid="google-signin-btn"
+          className="btn btn-primary btn-block"
+          onClick={() => signInWithGoogle()}
+        >
+          Continue with Google
+        </button>
 
-      <div style={{ borderTop: '1px solid var(--color-border, #e5e7eb)', paddingTop: '1.5rem' }}>
-        {sent ? (
-          <p data-testid="magic-link-sent">Check your email — we sent a link.</p>
-        ) : (
-          <form onSubmit={handleMagicLink}>
-            <input
-              data-testid="magic-link-input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              required
-              style={{ width: '100%', padding: '0.75rem', marginBottom: '0.75rem', boxSizing: 'border-box' }}
-            />
-            <button
-              data-testid="magic-link-submit"
-              type="submit"
-              disabled={submitting}
-              style={{ width: '100%', padding: '0.75rem', cursor: 'pointer' }}
-            >
-              {submitting ? 'Sending…' : 'Send magic link'}
-            </button>
-          </form>
-        )}
+        <div className="auth-magic">
+          {sent ? (
+            <p data-testid="magic-link-sent" className="auth-fine">Check your email — we sent a link.</p>
+          ) : (
+            <form onSubmit={handleMagicLink}>
+              <div className="field">
+                <input
+                  data-testid="magic-link-input"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  required
+                  className="input"
+                />
+                <button
+                  data-testid="magic-link-submit"
+                  type="submit"
+                  disabled={submitting}
+                  className="btn btn-block"
+                >
+                  {submitting ? 'Sending…' : 'Send magic link'}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+
+        <p className="auth-fine">Invite-only access · Contact David to request access</p>
       </div>
     </div>
   )

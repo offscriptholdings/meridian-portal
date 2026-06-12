@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
 import './styles/tokens.css'
+import './styles/layout.css'
 import LoginPage from './routes/auth/LoginPage'
 import CallbackPage from './routes/auth/CallbackPage'
 import NotAuthorizedPage from './routes/auth/NotAuthorizedPage'
 import ClientLayout from './routes/client'
 import AdminLayout from './routes/admin'
-import { getSession, getMembership } from './lib/auth'
+import { getSession, getMembership, type Membership } from './lib/auth'
 
 type AppState = 'loading' | 'unauthenticated' | 'no_membership' | 'client' | 'admin'
 
 export default function App() {
   const [path, setPath] = useState(window.location.pathname)
   const [appState, setAppState] = useState<AppState>('loading')
+  const [membership, setMembership] = useState<Membership | null>(null)
+  const [userEmail, setUserEmail] = useState('')
 
   const navigate = (newPath: string) => {
     window.history.pushState({}, '', newPath)
@@ -33,9 +36,11 @@ export default function App() {
 
     getSession().then(async (session) => {
       if (!session) { navigate('/login'); return }
-      const membership = await getMembership(session.user.id)
-      if (!membership) { navigate('/not-authorized'); return }
-      setAppState(membership.role === 'admin' ? 'admin' : 'client')
+      const m = await getMembership(session.user.id)
+      if (!m) { navigate('/not-authorized'); return }
+      setMembership(m)
+      setUserEmail(session.user.email ?? '')
+      setAppState(m.role === 'admin' ? 'admin' : 'client')
     })
   }, [path])
 
@@ -50,9 +55,11 @@ export default function App() {
 
   // --- Protected routes ---
   if (appState === 'loading') {
-    return <div style={{ fontFamily: 'var(--font-sans)', padding: '2rem' }}>Loading…</div>
+    return <div className="loading-screen">Loading…</div>
   }
-  if (appState === 'admin') return <AdminLayout />
-  if (appState === 'client') return <ClientLayout />
+  if (appState === 'admin' && membership)
+    return <AdminLayout navigate={navigate} path={path} membership={membership} userEmail={userEmail} />
+  if (appState === 'client' && membership)
+    return <ClientLayout navigate={navigate} path={path} membership={membership} userEmail={userEmail} />
   return null
 }
