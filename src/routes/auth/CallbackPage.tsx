@@ -45,7 +45,7 @@ export default function CallbackPage({ navigate }: CallbackPageProps) {
 
   if (error) {
     return (
-      <div data-testid="callback-page" style={{ fontFamily: 'var(--font-sans)', padding: '2rem' }}>
+      <div data-testid="callback-page" className="loading-screen">
         <p data-testid="callback-error">
           Something went wrong. <a href="/login">Back to login</a>
         </p>
@@ -54,7 +54,7 @@ export default function CallbackPage({ navigate }: CallbackPageProps) {
   }
 
   return (
-    <div data-testid="callback-page" style={{ fontFamily: 'var(--font-sans)', padding: '2rem' }}>
+    <div data-testid="callback-page" className="loading-screen">
       <p data-testid="callback-loading">Signing you in…</p>
     </div>
   )

@@ -11,10 +11,10 @@ export default function NotAuthorizedPage({ navigate }: NotAuthorizedPageProps) 
   }
 
   return (
-    <div data-testid="not-authorized-page" style={{ fontFamily: 'var(--font-sans)', maxWidth: '400px', margin: '4rem auto', padding: '2rem' }}>
+    <div data-testid="not-authorized-page" className="gate">
       <h1>Not Authorized</h1>
       <p>You don&apos;t have access to this portal. Contact David to request access.</p>
-      <button onClick={handleSignOut} style={{ marginTop: '1rem', padding: '0.75rem 1.5rem', cursor: 'pointer' }}>
+      <button onClick={handleSignOut} className="btn btn-primary">
         Sign out
       </button>
     </div>
