@@ -77,7 +77,7 @@ export default function ClientLayout({ navigate, path, membership, userEmail }: 
       <div className="main">
         <div className="topline">
           <div className="crumb">
-            {membership.tenant_name} {/* decorative separator */}<span style={{ opacity: 0.4 }}>/</span> {activeLabel}
+            {membership.tenant_name} {/* decorative separator */}<span className="nav-separator">/</span> {activeLabel}
           </div>
           <button className="btn btn-sm" onClick={handleSignOut}>Sign out</button>
         </div>
