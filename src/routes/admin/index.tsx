@@ -77,7 +77,7 @@ export default function AdminLayout({ navigate, path, userEmail }: AdminLayoutPr
       <div className="main">
         <div className="topline">
           <div className="crumb">
-            Admin {/* decorative separator */}<span style={{ opacity: 0.4 }}>/</span> {NAV.find(n => n.key === activeSection)?.label ?? 'Overview'}
+            Admin {/* decorative separator */}<span className="nav-separator">/</span> {NAV.find(n => n.key === activeSection)?.label ?? 'Overview'}
           </div>
           <button className="btn btn-sm" onClick={handleSignOut}>Sign out</button>
         </div>

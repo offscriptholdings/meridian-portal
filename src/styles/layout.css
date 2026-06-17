@@ -59,6 +59,7 @@
 }
 .topline .crumb { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
 .topline .crumb b { color: var(--ink); font-weight: 500; }
+.nav-separator { opacity: 0.4; }
 .topline .actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .content { flex: 1; min-height: 0; overflow: auto; padding: var(--space-lg); scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent; }
 .content::-webkit-scrollbar { width: 9px; }
