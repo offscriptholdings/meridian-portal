@@ -230,3 +230,20 @@
   color: var(--ink-3);
   font-size: 14px;
 }
+
+/* plan surface — MTC-363 */
+.plan-page { padding: 1.5rem 2rem; }
+.plan-milestone { margin-bottom: 2rem; }
+.plan-milestone-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+.plan-milestone-name { font-weight: 600; color: var(--ink); }
+.plan-milestone-date { font-size: 0.8rem; color: var(--ink-3); }
+.plan-issue { display: flex; align-items: center; gap: 0.75rem; padding: 0.375rem 0; border-bottom: 1px solid var(--rule); }
+.plan-issue:last-child { border-bottom: none; }
+.plan-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.plan-status--completed { background: var(--ok); }
+.plan-status--started { background: var(--active); }
+.plan-status--unstarted { background: transparent; border: 1.5px solid var(--ink-3); }
+.plan-status--cancelled { background: var(--ink-4); }
+.plan-issue-title { flex: 1; color: var(--ink); font-size: 0.9rem; }
+.plan-issue-state { font-size: 0.75rem; color: var(--ink-3); white-space: nowrap; }
+.plan-empty-section { font-size: 0.85rem; color: var(--ink-3); padding: 0.25rem 0; }
