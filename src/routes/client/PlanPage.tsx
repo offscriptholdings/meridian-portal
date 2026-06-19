@@ -27,17 +27,21 @@ export default function PlanPage({ membership: _membership }: PlanPageProps) {
   useEffect(() => {
     let cancelled = false
     async function load() {
-      const { data: { session } } = await supabase.auth.getSession()
-      const res = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/linear-plan`,
-        { method: 'GET', headers: { Authorization: `Bearer ${session?.access_token ?? ''}` } },
-      )
-      const json = await res.json()
-      if (cancelled) return
-      if (!res.ok) { setLoadState('error'); return }
-      if (json.unconfigured) { setLoadState('unconfigured'); return }
-      setPlanData(json)
-      setLoadState('ready')
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        const res = await fetch(
+          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/linear-plan`,
+          { method: 'GET', headers: { Authorization: `Bearer ${session?.access_token ?? ''}` } },
+        )
+        const json = await res.json()
+        if (cancelled) return
+        if (!res.ok) { setLoadState('error'); return }
+        if (json.unconfigured) { setLoadState('unconfigured'); return }
+        setPlanData(json)
+        setLoadState('ready')
+      } catch {
+        if (!cancelled) setLoadState('error')
+      }
     }
     load()
     return () => { cancelled = true }
