@@ -247,3 +247,32 @@
 .plan-issue-title { flex: 1; color: var(--ink); font-size: 0.9rem; }
 .plan-issue-state { font-size: 0.75rem; color: var(--ink-3); white-space: nowrap; }
 .plan-empty-section { font-size: 0.85rem; color: var(--ink-3); padding: 0.25rem 0; }
+
+/* docs surface — MTC-365 */
+.docs-page { padding: 1.5rem 2rem; }
+.docs-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.docs-title { font-family: var(--serif); font-weight: 300; font-size: clamp(22px, 2.5vw, 30px); letter-spacing: -0.02em; margin: 0; }
+.docs-sub { color: var(--ink-3); font-size: 13px; margin-top: 4px; }
+.docs-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.docs-file-input { display: none; }
+.docs-err { font-size: 12px; color: #c0392b; }
+.docs-empty { color: var(--ink-3); font-size: 14px; padding: 2rem 0; }
+.docs-list { display: grid; gap: 0; }
+.docs-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.docs-row:last-child { border-bottom: none; }
+.docs-icon { width: 32px; height: 32px; flex: none; color: var(--ink-3); display: grid; place-items: center; }
+.docs-icon svg { width: 20px; height: 20px; }
+.docs-meta { flex: 1; min-width: 0; }
+.docs-name { font-size: 14px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.docs-info { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+.docs-dl { flex: none; }
+.docs-tenant-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+.docs-tenant-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.docs-tenant-select {
+  appearance: none; background: var(--bg-card); border: 1px solid var(--rule);
+  border-radius: 8px; padding: 7px 28px 7px 10px; font: inherit; font-size: 13px;
+  color: var(--ink); cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 8px center;
+}
+.docs-tenant-select:focus { outline: none; border-color: var(--accent); }

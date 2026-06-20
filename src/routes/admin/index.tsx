@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import AdminDocsPage from './AdminDocsPage'
 import { supabase } from '../../lib/supabase'
 import { type Membership } from '../../lib/auth'
 
@@ -40,7 +41,7 @@ export default function AdminLayout({ navigate, path, userEmail }: AdminLayoutPr
     : activeSection === 'tickets'
     ? <div data-testid="admin-tickets-empty" className="empty-state">Queue — coming soon</div>
     : activeSection === 'docs'
-    ? <div data-testid="admin-docs-empty" className="empty-state">Documents — coming soon</div>
+    ? <AdminDocsPage userEmail={userEmail} />
     : <div data-testid="admin-overview-empty" className="empty-state">Overview — coming soon</div>
 
   const desktopShell = (
