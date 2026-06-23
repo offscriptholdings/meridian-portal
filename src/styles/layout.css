@@ -276,3 +276,33 @@
   background-repeat: no-repeat; background-position: right 8px center;
 }
 .docs-tenant-select:focus { outline: none; border-color: var(--accent); }
+
+/* tickets surface — MTC-455 */
+.tickets-page { padding: 1.5rem 2rem; }
+.tickets-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.tickets-title { font-family: var(--serif); font-weight: 300; font-size: clamp(22px, 2.5vw, 30px); letter-spacing: -0.02em; margin: 0; }
+.tickets-sub { color: var(--ink-3); font-size: 13px; margin-top: 4px; }
+.tickets-form { display: flex; flex-direction: column; gap: var(--space); max-width: 600px; }
+.tickets-field { display: flex; flex-direction: column; gap: 6px; }
+.tickets-label { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+.tickets-input {
+  width: 100%; padding: 9px 12px; border: 1px solid var(--rule-strong);
+  border-radius: var(--radius); background: var(--bg-card); color: var(--ink);
+  font: inherit; font-size: 14px; transition: border-color .15s var(--ease);
+}
+.tickets-input:focus { outline: none; border-color: var(--accent); }
+.tickets-input:disabled { opacity: 0.6; cursor: not-allowed; }
+.tickets-textarea {
+  width: 100%; min-height: 120px; padding: 9px 12px; border: 1px solid var(--rule-strong);
+  border-radius: var(--radius); background: var(--bg-card); color: var(--ink);
+  font: inherit; font-size: 14px; resize: vertical; transition: border-color .15s var(--ease);
+}
+.tickets-textarea:focus { outline: none; border-color: var(--accent); }
+.tickets-textarea:disabled { opacity: 0.6; cursor: not-allowed; }
+.tickets-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.tickets-err { font-size: 13px; color: #c0392b; }
+.tickets-success {
+  border-left: 3px solid var(--accent); padding: 14px 18px;
+  border-radius: var(--radius); background: var(--accent-soft);
+  font-size: 14px; color: var(--ink); margin-bottom: var(--space);
+}

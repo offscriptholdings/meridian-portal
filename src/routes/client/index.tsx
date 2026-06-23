@@ -3,6 +3,7 @@ import { supabase } from '../../lib/supabase'
 import { type Membership } from '../../lib/auth'
 import DocsPage from './DocsPage'
 import PlanPage from './PlanPage'
+import TicketsPage from './TicketsPage'
 
 interface ClientLayoutProps {
   navigate: (path: string) => void
@@ -40,7 +41,7 @@ export default function ClientLayout({ navigate, path, membership, userEmail }: 
   }
 
   const subContent = activeSection === 'tickets'
-    ? <div data-testid="client-tickets-empty" className="empty-state">Tickets — coming soon (MTC-364)</div>
+    ? <TicketsPage membership={membership} userEmail={userEmail} />
     : activeSection === 'docs'
     ? <DocsPage membership={membership} userEmail={userEmail} />
     : <PlanPage membership={membership} />
