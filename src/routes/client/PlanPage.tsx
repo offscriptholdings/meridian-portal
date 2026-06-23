@@ -20,6 +20,7 @@ function formatDate(iso: string | null): string {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function PlanPage({ membership: _membership }: PlanPageProps) {
   const [loadState, setLoadState] = useState<LoadState>('loading')
   const [planData, setPlanData] = useState<PlanData | null>(null)
