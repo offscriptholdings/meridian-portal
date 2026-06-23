@@ -306,3 +306,63 @@
   border-radius: var(--radius); background: var(--accent-soft);
   font-size: 14px; color: var(--ink); margin-bottom: var(--space);
 }
+
+/* tickets list — MTC-456 */
+.tickets-list {
+  max-width: 600px;
+  margin-bottom: calc(var(--space) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tickets-list-loading,
+.tickets-list-empty {
+  padding: 24px 18px;
+  color: var(--ink-3);
+  font-size: 14px;
+  margin: 0;
+}
+.tickets-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--rule);
+}
+.tickets-list-item:last-child { border-bottom: none; }
+.tickets-item-subject {
+  flex: 1;
+  font-size: 14px;
+  color: var(--ink);
+  word-break: break-word;
+}
+.tickets-item-date {
+  font-size: 12px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tickets-status {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+.tickets-status--open   { background: var(--ok-soft);   color: var(--ok); }
+.tickets-status--closed { background: var(--wait-soft);  color: var(--ink-3); }
+.tickets-submit-section { max-width: 600px; }
+.tickets-section-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  margin: 0 0 var(--space);
+}
