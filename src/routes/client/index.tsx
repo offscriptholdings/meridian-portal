@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
 import { type Membership } from '../../lib/auth'
+import DocsPage from './DocsPage'
 import PlanPage from './PlanPage'
 
 interface ClientLayoutProps {
@@ -41,7 +42,7 @@ export default function ClientLayout({ navigate, path, membership, userEmail }: 
   const subContent = activeSection === 'tickets'
     ? <div data-testid="client-tickets-empty" className="empty-state">Tickets — coming soon (MTC-364)</div>
     : activeSection === 'docs'
-    ? <div data-testid="client-docs-empty" className="empty-state">Documents — coming soon (MTC-365)</div>
+    ? <DocsPage membership={membership} userEmail={userEmail} />
     : <PlanPage membership={membership} />
 
   const desktopShell = (
