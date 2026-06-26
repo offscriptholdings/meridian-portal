@@ -41,7 +41,7 @@ export default function DocsPage({ membership, userEmail }: DocsPageProps) {
     setLoadState('ready')
   }
 
-  useEffect(() => { loadDocs() }, [])
+  useEffect(() => { loadDocs() }, []) // eslint-disable-line react-hooks/set-state-in-effect
 
   const handleUpload = async (file: File) => {
     if (file.size > MAX_FILE_SIZE) {

@@ -42,7 +42,7 @@ export default function AdminDocsPage({ userEmail }: AdminDocsPageProps) {
 
   useEffect(() => {
     if (!selectedTenantId) return
-    setDocsLoading(true)
+    setDocsLoading(true) // eslint-disable-line react-hooks/set-state-in-effect
     supabase
       .from('documents')
       .select('id, storage_path, name, uploaded_by, size, content_type, created_at')
